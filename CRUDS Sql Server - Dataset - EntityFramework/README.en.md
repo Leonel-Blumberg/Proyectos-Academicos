@@ -64,7 +64,7 @@ Once your chosen project is configured, make sure it's set as the startup projec
 
 ## Author
 
-**Leonel Maximiliano Blumberg**
+**Leonel Maximiliano Blumberg**<br>
 Software Developer | .NET · C# · ASP.NET · SQL | Systems Engineering Student
 
 [LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
