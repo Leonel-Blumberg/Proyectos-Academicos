@@ -13,6 +13,7 @@ Cada carpeta es un proyecto independiente con su propia documentación.
 | Proyecto | Descripción | Tecnologías |
 |---|---|---|
 | [CRUDS Sql Server - Dataset - EntityFramework](./CRUDS%20Sql%20Server%20-%20Dataset%20-%20EntityFramework) | Tres CRUDs que resuelven el mismo acceso a datos con enfoques distintos. | C#, Windows Forms, SQL Server, ADO.NET, Entity Framework |
+| [Ejercicio Arbol](./Ejercicio%20Arbol) | Árbol n-ario con representación hijo-hermano, inserción, búsqueda y recorridos preorder/postorder. | C#, .NET Framework |
 
 ---
 
