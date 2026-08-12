@@ -10,6 +10,20 @@ datos de tres formas distintas** en .NET: ADO.NET puro, DataSet tipado y Entity
 Framework (Database-First). Los tres comparten interfaz y lógica; lo único que
 cambia es la capa de persistencia.
 
+## Capturas
+
+**CRUD con ADO.NET**
+
+![CRUD con ADO.NET](docs/capturas/ado-net.png)
+
+**CRUD con DataSet**
+
+![CRUD con DataSet](docs/capturas/dataset.png)
+
+**CRUD con Entity Framework**
+
+![CRUD con Entity Framework](docs/capturas/entity-framework.png)
+
 ## Requisitos Previos
 Para ejecutar estos proyectos en tu entorno local, necesitas tener instalado:
 * .NET 8 SDK
