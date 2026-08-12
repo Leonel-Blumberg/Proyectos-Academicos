@@ -1,3 +1,5 @@
+*[Leer en español](README.md)*
+
 # SQL Server CRUDs: ADO.NET, DataSet, and Entity Framework
 
 A C# (Windows Forms) desktop application for managing person records on SQL
@@ -51,4 +53,4 @@ Once your chosen project is configured, make sure it's set as the startup projec
 **Leonel Maximiliano Blumberg**
 Software Developer | .NET · C# · ASP.NET · SQL | Systems Engineering Student
 
-[LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg)
+[LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
