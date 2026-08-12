@@ -32,7 +32,7 @@ To open and run this project in your local environment, you need the following i
 
 ## Author
 
-**Leonel Maximiliano Blumberg**
+**Leonel Maximiliano Blumberg**<br>
 Software Developer | .NET · C# · ASP.NET · SQL | Systems Engineering Student
 
 [LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
