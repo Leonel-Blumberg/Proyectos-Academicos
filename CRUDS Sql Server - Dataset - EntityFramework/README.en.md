@@ -10,6 +10,20 @@ access problem three different ways** in .NET: raw ADO.NET, typed DataSet, and
 Entity Framework (Database-First). All three share the same interface and logic;
 only the persistence layer changes.
 
+## Screenshots
+
+**ADO.NET CRUD**
+
+![ADO.NET CRUD](docs/capturas/ado-net.png)
+
+**DataSet CRUD**
+
+![DataSet CRUD](docs/capturas/dataset.png)
+
+**Entity Framework CRUD**
+
+![Entity Framework CRUD](docs/capturas/entity-framework.png)
+
 ## Prerequisites
 
 To run these projects in your local environment, you need the following installed:
