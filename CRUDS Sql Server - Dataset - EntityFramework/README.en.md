@@ -1,3 +1,5 @@
+*[Leer en español](README.md)*
+
 # SQL Server CRUDs: ADO.NET, DataSet, and Entity Framework
 
 A C# (Windows Forms) desktop application for managing person records on SQL
@@ -7,6 +9,20 @@ The point of this repository isn't the CRUD itself, but **solving the same data
 access problem three different ways** in .NET: raw ADO.NET, typed DataSet, and
 Entity Framework (Database-First). All three share the same interface and logic;
 only the persistence layer changes.
+
+## Screenshots
+
+**ADO.NET CRUD**
+
+![ADO.NET CRUD](docs/capturas/ado-net.png)
+
+**DataSet CRUD**
+
+![DataSet CRUD](docs/capturas/dataset.png)
+
+**Entity Framework CRUD**
+
+![Entity Framework CRUD](docs/capturas/entity-framework.png)
 
 ## Prerequisites
 
@@ -51,4 +67,4 @@ Once your chosen project is configured, make sure it's set as the startup projec
 **Leonel Maximiliano Blumberg**
 Software Developer | .NET · C# · ASP.NET · SQL | Systems Engineering Student
 
-[LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg)
+[LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
