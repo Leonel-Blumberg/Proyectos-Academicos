@@ -61,7 +61,7 @@ Una vez configurado el proyecto elegido, asegúrate de que esté seleccionado co
 
 ## Autor
 
-**Leonel Maximiliano Blumberg**
+**Leonel Maximiliano Blumberg**<br>
 Desarrollador de Software | .NET · C# · ASP.NET · SQL | Estudiante de Ing. en Sistemas
 
 [LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
