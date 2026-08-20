@@ -17,9 +17,9 @@ Each folder is a standalone project with its own documentation.
 
 ---
 
-## Autor
+## Author
 
 **Leonel Maximiliano Blumberg**<br>
-Desarrollador de Software | .NET · C# · ASP.NET · SQL | Estudiante de Ing. en Sistemas
+Software Developer | .NET · C# · ASP.NET · SQL | Systems Engineering Student
 
 [LinkedIn](https://www.linkedin.com/in/leonel-blumberg) · [GitHub](https://github.com/Leonel-Blumberg) · [Email](mailto:leonelblumberg.it@gmail.com)
