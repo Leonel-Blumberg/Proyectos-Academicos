@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ejercicio_Arbol
 {
@@ -14,18 +10,23 @@ namespace Ejercicio_Arbol
         {
             if (pNodo == null)
             {
-                raiz = new Nodo();
-                raiz.Nombre = pDato;
-                raiz.Hijo = null;
-                raiz.Hermano = null;
+                raiz = new Nodo
+                {
+                    Nombre = pDato,
+                    Hijo = null,
+                    Hermano = null
+                };
 
                 return raiz;
             }
 
             if (pNodo.Hijo == null)
             {
-                Nodo temp = new Nodo();
-                temp.Nombre = pDato;
+                Nodo temp = new Nodo
+                {
+                    Nombre = pDato
+                };
+
                 pNodo.Hijo = temp;
 
                 return temp;
@@ -35,13 +36,12 @@ namespace Ejercicio_Arbol
                 Nodo trabajo = pNodo.Hijo;
 
                 while (trabajo.Hermano != null)
-                {
                     trabajo = trabajo.Hermano;
-                }
 
-                Nodo temp = new Nodo();
-
-                temp.Nombre = pDato;
+                Nodo temp = new Nodo
+                {
+                    Nombre = pDato
+                };
 
                 trabajo.Hermano = temp;
 

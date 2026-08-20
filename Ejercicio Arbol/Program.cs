@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ejercicio_Arbol
 {
@@ -20,7 +16,9 @@ namespace Ejercicio_Arbol
             MostrarRecorridoPostOrder(arbol, raiz);
 
             Console.WriteLine("\n------------------------------------------\n");
-            Console.ReadKey();
+
+            if (!Console.IsInputRedirected)
+                Console.ReadKey();
         }
 
         static void ProgramaPrincipal(Arbol arbol, ref Nodo raiz)
@@ -34,6 +32,13 @@ namespace Ejercicio_Arbol
 
             Console.Write("Ingrese el nombre del nodo raiz: ");
             nuevoNodo = Console.ReadLine();
+
+            if (nuevoNodo == null)
+            {
+                AvisarFinDeEntrada();
+                return;
+            }
+
             raiz = arbol.Insertar(nuevoNodo, null);
             Console.WriteLine("");
 
@@ -42,10 +47,22 @@ namespace Ejercicio_Arbol
                 Console.Write("Ingrese el nombre del nodo a insertar: ");
                 nuevoNodo = Console.ReadLine();
 
+                if (nuevoNodo == null)
+                {
+                    AvisarFinDeEntrada();
+                    return;
+                }
+
                 do
                 {
                     Console.Write("Ingrese la ubicación del nodo a insertar (nombre del nodo): ");
                     ubiNuevoNodo = Console.ReadLine();
+
+                    if (ubiNuevoNodo == null)
+                    {
+                        AvisarFinDeEntrada();
+                        return;
+                    }
 
                     encontrado = arbol.Buscar(ubiNuevoNodo, raiz);
 
@@ -64,6 +81,12 @@ namespace Ejercicio_Arbol
                     Console.Write("¿Desea continuar? (SI/NO): ");
                     respuesta = Console.ReadLine();
 
+                    if (respuesta == null)
+                    {
+                        AvisarFinDeEntrada();
+                        return;
+                    }
+
                     if (respuesta.ToUpper() != "SI" && respuesta.ToUpper() != "NO")
                         Console.WriteLine("\n| LA RESPUESTA DEBE SER \"SI\" o \"NO\". |\n");
 
@@ -72,6 +95,11 @@ namespace Ejercicio_Arbol
                 Console.WriteLine("");
 
             } while (respuesta.ToUpper() == "SI");
+        }
+
+        static void AvisarFinDeEntrada()
+        {
+            Console.WriteLine("\n| SE TERMINO LA ENTRADA DE DATOS |\n");
         }
 
         static void MostrarRecorridoPreorder(Arbol arbol, Nodo raiz)
