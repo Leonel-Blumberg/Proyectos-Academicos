@@ -13,8 +13,8 @@ Cada carpeta es un proyecto independiente con su propia documentación.
 | Proyecto | Descripción | Tecnologías |
 |---|---|---|
 | [CRUDS Sql Server - Dataset - EntityFramework](./CRUDS%20Sql%20Server%20-%20Dataset%20-%20EntityFramework) | Tres CRUDs que resuelven el mismo acceso a datos con enfoques distintos. | C#, Windows Forms, SQL Server, ADO.NET, DataSet, Entity Framework Core |
-| [Ejercicio Arbol](./Ejercicio%20Arbol) | Árbol n-ario con representación hijo-hermano, inserción, búsqueda y recorridos preorder/postorder. | C#, .NET Framework 4.8 |
 | [Ejercicio con Archivos](./Ejercicio%20con%20Archivos) | Gestión de alumnos persistida en archivo de texto, con búsqueda, edición y listados ordenados. | C#, .NET 8 |
+| [Estructuras de Datos](./Estructuras%20de%20Datos) | Ejercicios de estructuras de datos implementadas a mano, con su propio índice. | C#, .NET Framework 4.8 |
 
 ---
 
