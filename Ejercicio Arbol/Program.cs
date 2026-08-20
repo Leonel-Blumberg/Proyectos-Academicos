@@ -30,7 +30,7 @@ namespace Ejercicio_Arbol
             Console.WriteLine("###### PROGRAMA PARA ARMAR UN ÁRBOL ######");
             Console.WriteLine("##########################################\n");
 
-            Console.Write("Ingrese el nombre del nodo raiz: ");
+            Console.Write("Ingrese el nombre del nodo raíz: ");
             nuevoNodo = Console.ReadLine();
 
             if (nuevoNodo == null)
@@ -99,7 +99,7 @@ namespace Ejercicio_Arbol
 
         static void AvisarFinDeEntrada()
         {
-            Console.WriteLine("\n| SE TERMINO LA ENTRADA DE DATOS |\n");
+            Console.WriteLine("\n| SE TERMINÓ LA ENTRADA DE DATOS |\n");
         }
 
         static void MostrarRecorridoPreorder(Arbol arbol, Nodo raiz)
