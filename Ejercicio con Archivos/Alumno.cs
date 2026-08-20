@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ejercicio_con_Archivos
+﻿namespace Ejercicio_con_Archivos
 {
     internal class Alumno
     {

@@ -4,15 +4,13 @@ internal class Program
 {
     static void Main()
     {
-        string rutaArchivo = "ListaAlumnos.txt";
-
-        GestorAlumnos gestorAlumnos = new GestorAlumnos();
+        GestorAlumnos gestorAlumnos = new();
 
         string? opcion;
 
         do
         {
-            Console.WriteLine("---------- Menu Programa Alumnos ----------\n");
+            Console.WriteLine("---------- Menú Programa Alumnos ----------\n");
             Console.WriteLine("             1. Cargar Datos");
             Console.WriteLine("             2. Modificar");
             Console.WriteLine("             3. Buscar");
@@ -20,9 +18,16 @@ internal class Program
             Console.WriteLine("             5. Hacer Listado");
             Console.WriteLine("             0. Salir");
 
-            Console.Write("\nSeleccione una opcion: ");
+            Console.Write("\nSeleccione una opción: ");
 
             opcion = Console.ReadLine();
+
+            if (opcion == null)
+            {
+                AvisarFinDeEntrada();
+                return;
+            }
+
             Console.WriteLine();
 
             // Las opciones 0 y 1 no necesitan que el archivo tenga datos.
@@ -31,7 +36,7 @@ internal class Program
 
             bool necesitaArchivo = esOpcionValida && opcion != "0" && opcion != "1";
 
-            bool archivoConDatos = File.Exists(rutaArchivo) && new FileInfo(rutaArchivo).Length > 0;
+            bool archivoConDatos = gestorAlumnos.ArchivoConDatos();
 
             if (!necesitaArchivo || archivoConDatos)
             {
@@ -58,8 +63,14 @@ internal class Program
 
                         do
                         {
-                            Console.Write("Desea hacer un listado ordenado por apellidos y nombres (1) o un listado ordenado por código de alumno (2)?: ");
+                            Console.Write("¿Desea hacer un listado ordenado por apellidos y nombres (1) o un listado ordenado por código de alumno (2)?: ");
                             opcionListado = Console.ReadLine();
+
+                            if (opcionListado == null)
+                            {
+                                AvisarFinDeEntrada();
+                                return;
+                            }
 
                             switch (opcionListado)
                             {
@@ -85,12 +96,17 @@ internal class Program
                         break;
                 }
             }
-            else if (File.Exists(rutaArchivo))
-                Console.WriteLine("| El archivo esta vacío, pruebe a cargar un dato. |");
+            else if (gestorAlumnos.ExisteArchivo())
+                Console.WriteLine("| El archivo está vacío, pruebe a cargar un dato. |");
             else
                 Console.WriteLine("| El archivo no existe, pruebe a cargar un dato. |");
 
             Console.WriteLine();
         } while (true);
+    }
+
+    static void AvisarFinDeEntrada()
+    {
+        Console.WriteLine("\n| SE TERMINÓ LA ENTRADA DE DATOS |\n");
     }
 }
