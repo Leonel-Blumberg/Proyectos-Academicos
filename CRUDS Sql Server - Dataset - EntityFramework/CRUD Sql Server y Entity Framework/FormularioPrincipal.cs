@@ -1,3 +1,4 @@
+ï»¿using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using CRUD_Sql_Server_y_Entity_Framework.Models;
 
@@ -21,10 +22,17 @@ namespace CRUD_Sql_Server_y_Entity_Framework
 
         private void RefrescarDGV()
         {
-            using CRUDconEntityFramework db = new();
-            var listaDatos = db.Personas3.ToList();
-            dgvVisDatos.DataSource = listaDatos;
-            dgvVisDatos.Columns["FechadeNacimiento"].HeaderText = "Fecha de Nacimiento";
+            try
+            {
+                using CRUDconEntityFramework db = new();
+                var listaDatos = db.Personas3.ToList();
+                dgvVisDatos.DataSource = listaDatos;
+                dgvVisDatos.Columns["FechaDeNacimiento"].HeaderText = "Fecha de Nacimiento";
+            }
+            catch (DbException ex)
+            {
+                MessageBox.Show("Error al obtener los datos de la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -46,29 +54,51 @@ namespace CRUD_Sql_Server_y_Entity_Framework
         {
             if (VerificarDatos() == true)
             {
-                using CRUDconEntityFramework db = new();
-                Personas3 oPersonas3 = new();
+                try
+                {
+                    using CRUDconEntityFramework db = new();
+                    Personas3 oPersonas3 = new();
 
-                if (id != null)
-                    oPersonas3 = db.Personas3.Find(id)!;
+                    if (id != null)
+                    {
+                        Personas3? oExistente = db.Personas3.Find(id);
 
-                oPersonas3.Nombre = txtNombre.Text.Trim();
-                oPersonas3.Correo = txtCorreo.Text.Trim();
-                oPersonas3.FechaDeNacimiento = DateOnly.FromDateTime(dtpFechaNacimiento.Value);
+                        if (oExistente == null)
+                        {
+                            MessageBox.Show("La persona seleccionada ya no existe en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            RefrescarDGV();
+                            return;
+                        }
 
-                if (id == null)
-                    db.Personas3.Add(oPersonas3);
+                        oPersonas3 = oExistente;
+                    }
 
-                db.SaveChanges();
+                    oPersonas3.Nombre = txtNombre.Text.Trim();
+                    oPersonas3.Correo = txtCorreo.Text.Trim();
+                    oPersonas3.FechaDeNacimiento = DateOnly.FromDateTime(dtpFechaNacimiento.Value);
 
-                txtNombre.Text = "";
-                txtCorreo.Text = "";
-                ActualizarDTPFechaNacimiento();
+                    if (id == null)
+                        db.Personas3.Add(oPersonas3);
 
-                if (id == null)
-                    MessageBox.Show("Persona agregada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Persona modificada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.SaveChanges();
+
+                    txtNombre.Text = "";
+                    txtCorreo.Text = "";
+                    ActualizarDTPFechaNacimiento();
+
+                    if (id == null)
+                        MessageBox.Show("Persona agregada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Persona modificada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show("Error al guardar los datos en la base de datos: " + (ex.InnerException?.Message ?? ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (DbException ex)
+                {
+                    MessageBox.Show("Error al guardar los datos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 RefrescarDGV();
             }
@@ -80,13 +110,31 @@ namespace CRUD_Sql_Server_y_Entity_Framework
 
             if (id != null)
             {
-                using CRUDconEntityFramework db = new();
+                try
+                {
+                    using CRUDconEntityFramework db = new();
 
-                Personas3 oPersonas3 = db.Personas3.Find(id)!;
-                db.Personas3.Remove(oPersonas3);
-                db.SaveChanges();
+                    Personas3? oPersonas3 = db.Personas3.Find(id);
 
-                MessageBox.Show("Persona eliminada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (oPersonas3 == null)
+                        MessageBox.Show("La persona seleccionada ya no existe en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        db.Personas3.Remove(oPersonas3);
+                        db.SaveChanges();
+
+                        MessageBox.Show("Persona eliminada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show("Error al eliminar los datos de la base de datos: " + (ex.InnerException?.Message ?? ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (DbException ex)
+                {
+                    MessageBox.Show("Error al eliminar los datos de la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 RefrescarDGV();
             }
             else

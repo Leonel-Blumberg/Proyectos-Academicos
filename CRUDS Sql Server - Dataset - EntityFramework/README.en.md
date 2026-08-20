@@ -7,8 +7,9 @@ Server: create, edit, delete, and query.
 
 The point of this repository isn't the CRUD itself, but **solving the same data
 access problem three different ways** in .NET: raw ADO.NET, typed DataSet, and
-Entity Framework (Database-First). All three share the same interface and logic;
-only the persistence layer changes.
+Entity Framework Core (Database-First). All three follow the same form design and
+the same workflow. What changes is the persistence layer and, in each case, the
+entity's fields.
 
 ## Screenshots
 
@@ -41,20 +42,21 @@ Because these projects use ADO.NET and Database-First approaches, the correspond
 
 1. Clone this repository to your local machine.
 2. Open SQL Server Management Studio (SSMS) and connect to your local server (`.\SQLEXPRESS`).
-3. Run the provided SQL scripts to create the database and the specific tables required by each project (note that each project uses a different table).
+3. Run the provided SQL scripts to create the database and the specific tables required by each project (note that each project uses a different database and table). Each script lives inside its own project folder, named `script_base_datos.sql`.
 4. Open the solution (`.sln`) in Visual Studio.
 
 **Specific configuration depending on the project you want to try:**
 
 * **CRUD Sql Server y ADO.NET:**
     * This project uses raw ADO.NET. If your server is named `.\SQLEXPRESS`, it's already configured. You just need to set it as the **Startup Project**.
+    * If not, open the `DatosDB.cs` file and change the `Data Source` in the `connectionString` field to match your local server.
 
 * **CRUD Sql Server y Dataset:**
     * If your server is named `.\SQLEXPRESS`, it's already configured.
     * If not, go to the Solution Explorer, open the `DatosDS.xsd` file, go to the properties of **"Personas2TableAdapter"**, and modify the **ConnectionString** under **Connection** to match your local SQL Server instance name.
 
 * **CRUD Sql Server y Entity Framework:**
-    * This project uses Entity Framework with the Database-First approach.
+    * This project uses Entity Framework Core 9 with the Database-First approach.
     * If your server is named `.\SQLEXPRESS`, it's already configured.
     * If not, open the **`Models`** folder, open the **"CRUDconEntityFramework"** class, and update the `Server` value in the connection string to match your local server.
 

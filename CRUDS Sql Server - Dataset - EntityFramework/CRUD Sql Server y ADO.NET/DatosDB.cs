@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using CRUD_Sql_Server_y_ADO.NET.Clases;
 
 namespace CRUD_Sql_Server_y_ADO.NET
@@ -16,7 +11,7 @@ namespace CRUD_Sql_Server_y_ADO.NET
         {
             try
             {
-                SqlConnection connection = new(connectionString);
+                using SqlConnection connection = new(connectionString);
                 connection.Open();
             }
             catch { return false; }
@@ -61,7 +56,7 @@ namespace CRUD_Sql_Server_y_ADO.NET
             return listaPersonas;
         }
 
-        public Persona GetID(int ID)
+        public Persona? GetID(int ID)
         {
             string consulta = "select ID,Nombre,Edad from Personas" + " where ID=@id";
 
@@ -75,14 +70,15 @@ namespace CRUD_Sql_Server_y_ADO.NET
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                reader.Read();
+                Persona? persona = null;
 
-                Persona persona = new()
-                {
-                    ID = reader.GetInt32(0),
-                    Nombre = reader.GetString(1),
-                    Edad = reader.GetInt32(2)
-                };
+                if (reader.Read())
+                    persona = new()
+                    {
+                        ID = reader.GetInt32(0),
+                        Nombre = reader.GetString(1),
+                        Edad = reader.GetInt32(2)
+                    };
 
                 reader.Close();
                 connection.Close();

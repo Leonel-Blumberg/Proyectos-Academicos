@@ -11,7 +11,7 @@ Each folder is a standalone project with its own documentation.
 
 | Project | Description | Technologies |
 |---|---|---|
-| [CRUDS Sql Server - Dataset - EntityFramework](./CRUDS%20Sql%20Server%20-%20Dataset%20-%20EntityFramework) | Three CRUDs solving the same data access problem with different approaches. | C#, Windows Forms, SQL Server, ADO.NET, Entity Framework |
+| [CRUDS Sql Server - Dataset - EntityFramework](./CRUDS%20Sql%20Server%20-%20Dataset%20-%20EntityFramework) | Three CRUDs solving the same data access problem with different approaches. | C#, Windows Forms, SQL Server, ADO.NET, DataSet, Entity Framework Core |
 | [Ejercicio Arbol](./Ejercicio%20Arbol) | N-ary tree using child-sibling representation, with insertion, search, and preorder/postorder traversals. | C#, .NET Framework |
 | [Ejercicio con Archivos](./Ejercicio%20con%20Archivos) | Student management persisted in a text file, with search, editing, and sorted listings. | C#, .NET 8 |
 

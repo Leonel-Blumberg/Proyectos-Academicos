@@ -1,3 +1,5 @@
+ï»¿using System.Data.Common;
+
 namespace CRUD_Sql_Server_y_Dataset
 {
     public partial class frmFormularioPrincipal : Form
@@ -29,21 +31,28 @@ namespace CRUD_Sql_Server_y_Dataset
             {
                 DatosDSTableAdapters.Personas2TableAdapter tableAdapter = new();
 
-                if (id == null)
-                    tableAdapter.AgregarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()), rbMasculino.Checked ? "Masculino" : rbFemenino.Checked ? "Femenino" : "Otro");
-                else
-                    tableAdapter.EditarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()), rbMasculino.Checked ? "Masculino" : rbFemenino.Checked ? "Femenino" : "Otro", (int)id);
+                try
+                {
+                    if (id == null)
+                        tableAdapter.AgregarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()), rbMasculino.Checked ? "Masculino" : rbFemenino.Checked ? "Femenino" : "Otro");
+                    else
+                        tableAdapter.EditarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()), rbMasculino.Checked ? "Masculino" : rbFemenino.Checked ? "Femenino" : "Otro", (int)id);
 
-                txtNombre.Text = "";
-                txtEdad.Text = "";
-                rbMasculino.Checked = false;
-                rbFemenino.Checked = false;
-                rbOtro.Checked = false;
+                    txtNombre.Text = "";
+                    txtEdad.Text = "";
+                    rbMasculino.Checked = false;
+                    rbFemenino.Checked = false;
+                    rbOtro.Checked = false;
 
-                if (id == null)
-                    MessageBox.Show("Persona agregada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Persona modificada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (id == null)
+                        MessageBox.Show("Persona agregada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Persona modificada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (DbException ex)
+                {
+                    MessageBox.Show("Error al guardar los datos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 Refrescar();
             }
@@ -55,10 +64,18 @@ namespace CRUD_Sql_Server_y_Dataset
 
             if (id != null)
             {
-                DatosDSTableAdapters.Personas2TableAdapter tableAdapter = new();
-                tableAdapter.EliminarPersona((int)id);
+                try
+                {
+                    DatosDSTableAdapters.Personas2TableAdapter tableAdapter = new();
+                    tableAdapter.EliminarPersona((int)id);
 
-                MessageBox.Show("Persona eliminada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Persona eliminada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (DbException ex)
+                {
+                    MessageBox.Show("Error al eliminar los datos de la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 Refrescar();
             }
             else
@@ -102,10 +119,17 @@ namespace CRUD_Sql_Server_y_Dataset
 
         private void Refrescar()
         {
-            DatosDSTableAdapters.Personas2TableAdapter tableAdapter = new();
-            DatosDS.Personas2DataTable dataTable = tableAdapter.GetData();
+            try
+            {
+                DatosDSTableAdapters.Personas2TableAdapter tableAdapter = new();
+                DatosDS.Personas2DataTable dataTable = tableAdapter.GetData();
 
-            dgvVisDatos.DataSource = dataTable;
+                dgvVisDatos.DataSource = dataTable;
+            }
+            catch (DbException ex)
+            {
+                MessageBox.Show("Error al obtener los datos de la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DgvVisDatos_SelectionChanged(object sender, EventArgs e)

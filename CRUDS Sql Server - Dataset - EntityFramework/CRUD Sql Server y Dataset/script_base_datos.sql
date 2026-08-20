@@ -9,8 +9,8 @@ GO
 -- Crear la tabla Personas2 | Create the People2 table
 CREATE TABLE Personas2 (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre NVARCHAR(100) NOT NULL,
+    Nombre VARCHAR(120) NOT NULL,
     Edad INT NOT NULL,
-    Sexo NVARCHAR(20) NOT NULL
+    Sexo VARCHAR(10) NOT NULL
 );
 GO

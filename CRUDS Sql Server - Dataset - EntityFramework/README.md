@@ -7,8 +7,9 @@ personas sobre SQL Server: alta, edición, eliminación y consulta.
 
 El punto del repositorio no es el CRUD en sí, sino **resolver el mismo acceso a
 datos de tres formas distintas** en .NET: ADO.NET puro, DataSet tipado y Entity
-Framework (Database-First). Los tres comparten interfaz y lógica; lo único que
-cambia es la capa de persistencia.
+Framework Core (Database-First). Los tres siguen el mismo diseño de formulario y
+el mismo flujo de trabajo. Lo que cambia es la capa de persistencia y, en cada
+caso, los campos de la entidad.
 
 ## Capturas
 
@@ -38,20 +39,21 @@ Debido a que estos proyectos utilizan ADO.NET y enfoques Database-First, la base
 
 1. Clona este repositorio en tu máquina local.
 2. Abre SQL Server Management Studio (SSMS) y conéctate a tu servidor local (`.\SQLEXPRESS`).
-3. Ejecuta los scripts SQL proporcionados para crear la base de datos y las tablas específicas requeridas por cada proyecto (recuerda que cada proyecto usa una tabla distinta).
+3. Ejecuta los scripts SQL proporcionados para crear la base de datos y las tablas específicas requeridas por cada proyecto (recuerda que cada proyecto usa una base y una tabla distintas). Cada script está dentro de la carpeta de su proyecto, con el nombre `script_base_datos.sql`.
 4. Abre la solución (`.sln`) en Visual Studio.
 
 **Configuración específica según el proyecto que desees probar:**
 
 * **CRUD Sql Server y ADO.NET:**
     * Este proyecto utiliza ADO.NET puro. Si tu servidor se llama `.\SQLEXPRESS`, ya está configurado. Solo debes establecerlo como **Proyecto de inicio**.
+    * Si no es el caso, abre el archivo `DatosDB.cs` y modifica el `Data Source` de la variable `connectionString` para que coincida con tu servidor local.
 
 * **CRUD Sql Server y Dataset:**
     * Si tu servidor se llama `.\SQLEXPRESS`, ya está configurado.
     * Si no es el caso, ve al Explorador de soluciones, abre el archivo `DatosDS.xsd`, ve a las propiedades de **"Personas2TableAdapter"** y modifica la **ConnectionString** en **Connection** para que coincida con el nombre de tu servidor local de SQL Server.
 
 * **CRUD Sql Server y Entity Framework:**
-    * Este proyecto utiliza Entity Framework con el enfoque Database-First.
+    * Este proyecto utiliza Entity Framework Core 9 con el enfoque Database-First.
     * Si tu servidor se llama `.\SQLEXPRESS`, ya está configurado.
     * Si no es el caso, abre la carpeta **`Models`**, abre la clase **"CRUDconEntityFramework"** y actualiza el `Server` en la cadena de conexión para que coincida con tu servidor local.
 

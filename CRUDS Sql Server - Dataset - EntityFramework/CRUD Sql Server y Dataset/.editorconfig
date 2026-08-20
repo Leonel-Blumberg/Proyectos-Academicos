@@ -1,0 +1,6 @@
+# El DataSet tipado lo genera Visual Studio (MSDataSetGenerator) sobre
+# System.Data.SqlClient, que está marcado como obsoleto. Las advertencias
+# CS0618 vienen de ese archivo generado y no se pueden corregir a mano,
+# porque se regenera cada vez que se edita DatosDS.xsd.
+[DatosDS.Designer.cs]
+dotnet_diagnostic.CS0618.severity = none

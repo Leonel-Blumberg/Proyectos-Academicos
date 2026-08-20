@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CRUD_Sql_Server_y_Entity_Framework.Models;
+﻿namespace CRUD_Sql_Server_y_Entity_Framework.Models;
 
 public partial class Personas3
 {

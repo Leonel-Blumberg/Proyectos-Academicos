@@ -1,9 +1,4 @@
-using System.CodeDom;
-using System.Drawing.Text;
-using System.Linq.Expressions;
-using CRUD_Sql_Server_y_ADO.NET.Clases;
-
-namespace CRUD_Sql_Server_y_ADO.NET
+ï»¿namespace CRUD_Sql_Server_y_ADO.NET
 {
     public partial class frmFormularioPrincipal : Form
     {
@@ -37,17 +32,17 @@ namespace CRUD_Sql_Server_y_ADO.NET
                 try
                 {
                     if (id == null)
-                        datosDB.AgregarPersona(txtNombre.Text, int.Parse(txtEdad.Text));
+                        datosDB.AgregarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()));
                     else
-                        datosDB.EditarPersona(txtNombre.Text, int.Parse(txtEdad.Text), (int)id);
+                        datosDB.EditarPersona(txtNombre.Text.Trim(), int.Parse(txtEdad.Text.Trim()), (int)id);
 
                     txtNombre.Text = "";
                     txtEdad.Text = "";
 
                     if (id == null)
-                        MessageBox.Show("Persona agregada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Persona agregada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Persona modificada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Persona modificada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (DBException ex)
                 {
@@ -69,7 +64,7 @@ namespace CRUD_Sql_Server_y_ADO.NET
                     DatosDB datosDB = new();
                     datosDB.EliminarPersona((int) id);
 
-                    MessageBox.Show("Persona eliminada con éxito.", "Info: Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Persona eliminada con Ã©xito.", "Info: Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Refrescar();
                 }
                 else
@@ -115,8 +110,15 @@ namespace CRUD_Sql_Server_y_ADO.NET
 
         private void Refrescar()
         {
-            DatosDB datosDB = new();
-            dgvVisDatos.DataSource = datosDB.GetDatos();
+            try
+            {
+                DatosDB datosDB = new();
+                dgvVisDatos.DataSource = datosDB.GetDatos();
+            }
+            catch (DBException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DgvVisDatos_SelectionChanged(object sender, EventArgs e)
