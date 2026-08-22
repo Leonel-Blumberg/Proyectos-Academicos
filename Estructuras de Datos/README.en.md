@@ -13,6 +13,7 @@ Each folder is a standalone project with its own documentation.
 | Project | Description | Technologies |
 |---|---|---|
 | [Ejercicio Arbol](./Ejercicio%20Arbol) | N-ary tree using child-sibling representation, with insertion, search, and preorder/postorder traversals. | C#, .NET Framework 4.8 |
+| [Practica de Nodos](./Practica%20de%20Nodos) | Three singly linked list exercises, with add, delete, update, and insertion relative to the selected node. | C#, Windows Forms, .NET Framework 4.8 |
 
 ---
 
