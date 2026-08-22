@@ -16,7 +16,7 @@ Each folder is a standalone project with its own documentation.
 | [CRUDS Sql Server - Dataset - EntityFramework](./CRUDS%20Sql%20Server%20-%20Dataset%20-%20EntityFramework) | Three CRUDs solving the same data access problem with different approaches. | C#, Windows Forms, SQL Server, ADO.NET, DataSet, Entity Framework Core |
 | [Ejercicio con Archivos](./Ejercicio%20con%20Archivos) | Student management persisted in a text file, with search, editing, and sorted listings. | C#, .NET 8 |
 | [Estructuras de Datos](./Estructuras%20de%20Datos) | Data structure exercises implemented by hand, with their own index. | C#, .NET Framework 4.8 |
-| [Prácticas](./Practicas) | Batches of short exercises grouped by topic, with their own index. | C#, Windows Forms, .NET Framework 4.8 |
+| [Prácticas](./Practicas) | Short exercises grouped by topic, with their own index. | C#, Windows Forms, .NET Framework 4.8 |
 
 ---
 
