@@ -14,6 +14,7 @@ Cada carpeta es un proyecto independiente con su propia documentación.
 |---|---|---|
 | [Ejercicio Arbol](./Ejercicio%20Arbol) | Árbol n-ario con representación hijo-hermano, inserción, búsqueda y recorridos preorder/postorder. | C#, .NET Framework 4.8 |
 | [Practica de Nodos](./Practica%20de%20Nodos) | Tres ejercicios de listas enlazadas simples, con alta, baja, modificación e inserción relativa al nodo seleccionado. | C#, Windows Forms, .NET Framework 4.8 |
+| [Practica de Pilas](./Practica%20de%20Pilas) | Tres ejercicios de pilas, con apilado, desapilado, consulta del tope y extracción de un elemento del medio usando una pila auxiliar. | C#, Windows Forms, .NET Framework 4.8 |
 
 ---
 
