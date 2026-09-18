@@ -11,8 +11,9 @@ Cada carpeta es un proyecto independiente con su propia documentación.
 
 ## Proyectos
 
-Todavía no hay proyectos publicados acá. Se van sumando a medida que se
-revisan.
+| Proyecto | Descripción | Tecnologías |
+|---|---|---|
+| [Sistema de Gestion de Biblioteca](./Sistema%20de%20Gestion%20de%20Biblioteca) | Libros, socios y préstamos, con el estado de cada libro actualizado por la aplicación al prestarlo y devolverlo. | C#, Windows Forms, .NET 8, EF Core, SQL Server |
 
 ---
 
