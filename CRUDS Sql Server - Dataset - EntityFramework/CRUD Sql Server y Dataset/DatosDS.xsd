@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=.\SQLEXPRESS;Initial Catalog=CRUDconDataset;Integrated Security=True;Encrypt=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="Conexion" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.\SQLEXPRESS;Initial Catalog=CRUDconDataset;Integrated Security=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="Conexion" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Personas2TableAdapter" GeneratorDataComponentClassName="Personas2TableAdapter" Name="Personas2" UserDataComponentName="Personas2TableAdapter">

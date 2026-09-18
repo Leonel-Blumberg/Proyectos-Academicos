@@ -55,7 +55,7 @@ Debido a que estos proyectos utilizan ADO.NET y enfoques Database-First, la base
 * **CRUD Sql Server y Entity Framework:**
     * Este proyecto utiliza Entity Framework Core 9 con el enfoque Database-First.
     * Si tu servidor se llama `.\SQLEXPRESS`, ya está configurado.
-    * Si no es el caso, abre la carpeta **`Models`**, abre la clase **"CRUDconEntityFramework"** y actualiza el `Server` en la cadena de conexión para que coincida con tu servidor local.
+    * Si no es el caso, abre la carpeta **`Models`**, abre la clase **"CRUDconEntityFramework"** y modifica el `Data Source` de la variable `connectionString` para que coincida con tu servidor local.
 
 Una vez configurado el proyecto elegido, asegúrate de que esté seleccionado como proyecto de inicio, compila y ejecuta la solución.
 

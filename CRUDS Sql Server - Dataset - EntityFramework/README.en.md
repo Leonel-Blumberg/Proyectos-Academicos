@@ -58,7 +58,7 @@ Because these projects use ADO.NET and Database-First approaches, the correspond
 * **CRUD Sql Server y Entity Framework:**
     * This project uses Entity Framework Core 9 with the Database-First approach.
     * If your server is named `.\SQLEXPRESS`, it's already configured.
-    * If not, open the **`Models`** folder, open the **"CRUDconEntityFramework"** class, and update the `Server` value in the connection string to match your local server.
+    * If not, open the **`Models`** folder, open the **"CRUDconEntityFramework"** class, and change the `Data Source` in the `connectionString` field to match your local server.
 
 Once your chosen project is configured, make sure it's set as the startup project, then build and run the solution.
 

@@ -845,7 +845,7 @@ SELECT ID, Nombre, Edad, Sexo FROM Personas2 WHERE (ID = @ID)";
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
             this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=CRUDconDataset;Integrated Security=True;" +
-                "Encrypt=False";
+                "TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

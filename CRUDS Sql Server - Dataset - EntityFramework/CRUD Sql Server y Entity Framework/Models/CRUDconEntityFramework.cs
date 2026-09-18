@@ -4,6 +4,8 @@ namespace CRUD_Sql_Server_y_Entity_Framework.Models;
 
 public partial class CRUDconEntityFramework : DbContext
 {
+    private readonly string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CRUDconEntityFramework;Integrated Security=True;TrustServerCertificate=True";
+
     public CRUDconEntityFramework()
     {
     }
@@ -15,7 +17,7 @@ public partial class CRUDconEntityFramework : DbContext
 
     public virtual DbSet<Personas3> Personas3 { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=CRUDconEntityFramework;Trusted_Connection=True;TrustServerCertificate=True;");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(connectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

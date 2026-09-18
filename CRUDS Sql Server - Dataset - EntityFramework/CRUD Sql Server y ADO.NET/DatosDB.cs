@@ -5,7 +5,7 @@ namespace CRUD_Sql_Server_y_ADO.NET
 {
     public class DatosDB
     {
-        private readonly string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CRUDconADONET;" + "Integrated Security=True;" + "TrustServerCertificate=True";
+        private readonly string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CRUDconADONET;Integrated Security=True;TrustServerCertificate=True";
 
         public bool VerificarConexion()
         {
